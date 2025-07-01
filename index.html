@@ -129,15 +129,142 @@
 
         .dashboard-preview {
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            border-radius: 10px;
+            height: 450px;
+            background: linear-gradient(135deg, #f8f9fa, #ffffff);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dashboard-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #0CC0DF, #FFDE59);
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .dashboard-header h3 {
+            margin: 0;
+            color: #333;
+            font-size: 1.4rem;
+            font-weight: 600;
+        }
+
+        .online-status {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
+            gap: 8px;
+            color: #0CC0DF;
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: #0CC0DF;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(12, 192, 223, 0.1);
+            border-color: #0CC0DF;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #0CC0DF, #FFDE59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
             color: #666;
-            border: 2px dashed #0CC0DF;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #0CC0DF, #FFDE59);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(12, 192, 223, 0.3);
+        }
+
+        .activity-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 6px;
+            height: 6px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.3; }
         }
 
         /* Benefits Section */
@@ -399,14 +526,44 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Chega de <span class="gradient-text">Limites e Tarifas Abusivas</span>: Conheça a PrevaSend</h1>
+            <h1>Chega de <span class="gradient-text">Limites e Tarifas Abusivas:</span> Conheça a PrevaSend</h1>
             <h2>A solução definitiva de e-mail marketing para quem precisa escalar sem pagar uma fortuna. Envie sem limites, com IPs dedicados, automação completa e suporte contínuo.</h2>
             
             <button class="cta-button" onclick="openPopup()">🔥 Quero Ver a PrevaSend em Ação</button>
             
             <div class="hero-image">
                 <div class="dashboard-preview">
-                    📊 Painel PrevaSend - Automações e Campanhas em Tempo Real
+                    <div class="activity-indicator"></div>
+                    <div class="dashboard-header">
+                        <h3>📊 Dashboard PrevaSend</h3>
+                        <div class="online-status">
+                            <div class="status-dot"></div>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">∞</div>
+                            <div class="stat-label">E-mails Enviados</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">98.7%</div>
+                            <div class="stat-label">Taxa de Entrega</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Suporte</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Setup Incluído</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-actions">
+                        <button class="action-btn">📧 Nova Campanha</button>
+                        <button class="action-btn">⚙️ Automação</button>
+                        <button class="action-btn">📈 Relatórios</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -545,7 +702,7 @@
     <section class="urgency">
         <div class="container">
             <div class="urgency-box">
-                <h2>⚠️ Vagas Limitadas</h2>
+                <h2>⚠️ Oferta Limitada</h2>
                 <p>Oferta exclusiva para os 10 primeiros novos clientes neste mês com IPs dedicados gratuitos!</p>
             </div>
         </div>
@@ -558,7 +715,7 @@
             <button class="cta-button" onclick="openPopup()">Começar Agora com PrevaSend</button>
             
             <p style="margin-top: 40px; font-style: italic; color: #666;">
-                <strong>P.S.:</strong> Você não precisa mais pagar caro para escalar. A PrevaSend nasceu para dar poder aos pequenos e médios negócios que querem resultados reais — com tecnologia de ponta, preço justo e atendimento de verdade.
+                <strong>NOTA:</strong> Você não precisa mais pagar caro para escalar. A PrevaSend nasceu para dar poder aos pequenos e médios negócios que querem resultados reais — com tecnologia de ponta, preço justo e atendimento de verdade.
             </p>
         </div>
     </section>
