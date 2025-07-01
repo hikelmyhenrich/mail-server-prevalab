@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevalab - Automação de Marketing Sem Limites</title>
+    <title>PrevaSend: Eficiência que prevalece - Envios ilimitados por um preço justo</title>
     <style>
         * {
             margin: 0;
@@ -12,10 +12,11 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #1a1a1a;
+            color: #333;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow-x: hidden;
         }
 
         .container {
@@ -24,754 +25,685 @@
             padding: 0 20px;
         }
 
-        .section {
-            padding: 80px 0;
-        }
-
-        /* Header */
-        .header {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-        }
-
-        .logo {
-            font-size: 28px;
+        .gradient-text {
+            background: linear-gradient(90deg, #0CC0DF, #FFDE59);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: 800;
-            color: white;
-            text-decoration: none;
-        }
-
-        .cta-header {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
-        }
-
-        .cta-header:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
         }
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse"><path d="M 50 0 L 0 0 0 50" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1000" height="1000" fill="url(%23grid)"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
             color: white;
         }
 
         .hero h1 {
-            font-size: 4rem;
-            font-weight: 900;
-            margin-bottom: 30px;
-            line-height: 1.1;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            animation: slideInUp 1s ease-out;
         }
 
-        .hero .highlight {
-            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 50px;
+        .hero .subheadline {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 3rem;
             opacity: 0.9;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            animation: slideInUp 1s ease-out 0.3s both;
         }
 
-        .hero-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            margin-top: 30px;
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            padding: 20px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
-        }
-
-        .btn-secondary {
-            color: white;
-            padding: 20px 40px;
-            border: 2px solid rgba(255,255,255,0.3);
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: rgba(255,255,255,0.5);
-        }
-
-        /* Main Content */
-        .main-content {
-            background: white;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Comparison Section */
-        .comparison {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%);
-            text-align: center;
-        }
-
-        .comparison h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 60px;
-            color: #2d3748;
-        }
-
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .comparison-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .comparison-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .comparison-card.highlight {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .comparison-card.highlight::before {
-            content: "MELHOR ESCOLHA";
-            position: absolute;
-            top: 20px;
-            right: -30px;
-            background: #ff6b6b;
-            color: white;
-            padding: 5px 40px;
-            font-size: 12px;
-            font-weight: 700;
-            transform: rotate(45deg);
-        }
-
-        .comparison-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .price {
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-        }
-
-        .price-desc {
-            font-size: 1rem;
-            opacity: 0.8;
-            margin-bottom: 30px;
-        }
-
-        .feature-list {
-            list-style: none;
-            text-align: left;
-        }
-
-        .feature-list li {
-            padding: 8px 0;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .feature-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #10b981;
-            font-weight: bold;
-        }
-
-        .comparison-card.highlight .feature-list li::before {
-            color: #ffd93d;
-        }
-
-        /* Benefits Section */
-        .benefits {
-            padding: 100px 0;
-        }
-
-        .benefits h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 80px;
-            color: #2d3748;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 50px;
-        }
-
-        .benefit-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-
-        .benefit-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            font-size: 2rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #2d3748;
-        }
-
-        .benefit-card p {
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background: linear-gradient(135deg, #f8f9ff 0%, #e8f4f8 100%);
-            text-align: center;
-        }
-
-        .testimonials h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 80px;
-            color: #2d3748;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 30px;
-            color: #4a5568;
-            line-height: 1.7;
-        }
-
-        .testimonial-author {
-            font-weight: 700;
-            color: #2d3748;
-        }
-
-        .testimonial-role {
-            color: #718096;
-            font-size: 0.9rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-        }
-
-        .cta-section h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            margin-bottom: 30px;
-        }
-
-        .cta-section p {
-            font-size: 1.3rem;
-            margin-bottom: 50px;
-            opacity: 0.9;
-        }
-
-        .btn-cta-large {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-            color: white;
-            padding: 25px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        .cta-button {
             display: inline-block;
+            background: linear-gradient(135deg, #0CC0DF, #FFDE59);
+            color: #333;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+            margin: 10px;
         }
 
-        .btn-cta-large:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
         }
 
-        /* FAQ Section */
-        .faq {
-            padding: 100px 0;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .faq h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            text-align: center;
-            margin-bottom: 80px;
-            color: #2d3748;
+        .logo {
+            max-width: 200px;
+            margin-bottom: 2rem;
+            animation: slideInUp 1s ease-out 0.6s both;
         }
 
-        .faq-container {
+        /* Mockup Dashboard */
+        .dashboard-mockup {
+            margin-top: 4rem;
+            animation: slideInUp 1s ease-out 0.9s both;
+        }
+
+        .mockup-container {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .faq-item {
-            background: white;
+        .dashboard-screen {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            padding: 20px;
+            color: white;
+            position: relative;
             overflow: hidden;
         }
 
-        .faq-question {
-            padding: 30px;
-            cursor: pointer;
-            font-weight: 700;
-            color: #2d3748;
+        .dashboard-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            margin-bottom: 20px;
         }
 
-        .faq-question:hover {
-            background: #f8f9ff;
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
-        .faq-answer {
-            padding: 0 30px 30px;
-            color: #4a5568;
-            line-height: 1.7;
-            display: none;
+        .stat-card {
+            background: rgba(12, 192, 223, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(12, 192, 223, 0.3);
         }
 
-        .faq-item.active .faq-answer {
-            display: block;
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0CC0DF;
         }
 
-        .faq-icon {
+        /* Sections */
+        .section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
+            border-left: 5px solid #0CC0DF;
         }
 
-        .faq-item.active .faq-icon {
-            transform: rotate(180deg);
+        .benefit-card:hover {
+            transform: translateY(-10px);
         }
 
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #0CC0DF;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+
+        .testimonial-author {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #0CC0DF;
+        }
+
+        /* Stats */
+        .stats-section {
+            text-align: center;
             color: white;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            padding: 20px;
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #FFDE59;
+        }
+
+        /* Guarantee */
+        .guarantee {
+            background: linear-gradient(135deg, #0CC0DF, #FFDE59);
+            color: #333;
             text-align: center;
             padding: 60px 0;
         }
 
-        .footer p {
-            opacity: 0.7;
+        .guarantee h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Urgency */
+        .urgency {
+            background: #ff4757;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .urgency h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Errors to Avoid */
+        .errors-section {
+            background: #2f3542;
+            color: white;
+            padding: 60px 0;
+        }
+
+        .errors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .error-item {
+            background: rgba(255, 71, 87, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #ff4757;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                padding: 40px 0;
             }
             
-            .hero .subtitle {
-                font-size: 1.2rem;
+            .section {
+                padding: 60px 0;
             }
             
-            .hero-cta {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .comparison h2,
-            .benefits h2,
-            .testimonials h2,
-            .cta-section h2,
-            .faq h2 {
-                font-size: 2rem;
-            }
-            
-            .comparison-grid,
-            .benefits-grid,
-            .testimonials-grid {
+            .benefits-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="logo">Prevalab</a>
-            <a href="#cta" class="cta-header">Começar Agora</a>
-        </nav>
-    </header>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Automação de Marketing <span class="highlight">Sem Limites</span> por uma Fração do Preço</h1>
-            <p class="subtitle">Chega de pagar R$ 1.375/mês por 100k contatos. Com a Prevalab, você tem servidores dedicados, IPs próprios e disparos ilimitados por um preço que cabe no seu bolso.</p>
-            <div class="hero-cta">
-                <a href="#cta" class="btn-primary">Solicitar Demonstração Gratuita</a>
-                <a href="#comparison" class="btn-secondary">Ver Comparação de Preços</a>
+            <div class="hero-content">
+                <img src="https://hikelmyhenrich.com/wp-content/uploads/2025/07/HHaaaa.png" alt="PrevaSend Logo" class="logo">
+                
+                <h1>
+                    <span class="gradient-text">Liberte-se dos limites:</span><br>
+                    envie quantos e-mails quiser pagando um valor justo
+                </h1>
+                
+                <p class="subheadline">
+                    Chega de pagar caro por nomes famosos. Com a PrevaSend, você tem liberdade total para escalar seu negócio com envios ilimitados, suporte completo e automação avançada.
+                </p>
+                
+                <a href="https://wa.me/5548998168148" class="cta-button" onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Hero CTA'})">
+                    🚀 Quero Enviar Sem Limites
+                </a>
+                
+                <div class="dashboard-mockup">
+                    <div class="mockup-container">
+                        <div class="dashboard-screen">
+                            <div class="dashboard-header">
+                                <h3>📊 Dashboard PrevaSend</h3>
+                                <span style="color: #0CC0DF;">✅ Online</span>
+                            </div>
+                            <div class="dashboard-stats">
+                                <div class="stat-card">
+                                    <div class="stat-number">∞</div>
+                                    <div>E-mails Enviados</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">98.7%</div>
+                                    <div>Taxa de Entrega</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">24/7</div>
+                                    <div>Suporte</div>
+                                </div>
+                                <div class="stat-card">
+                                    <div class="stat-number">100%</div>
+                                    <div>Setup Incluído</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <!-- Comparison Section -->
-        <section id="comparison" class="comparison section">
-            <div class="container">
-                <h2>Por que Pagar 10x Mais?</h2>
-                <p style="font-size: 1.2rem; color: #4a5568; margin-bottom: 40px;">Compare os preços das gigantes do mercado com a Prevalab</p>
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <h2>✅ <span class="gradient-text">Por que escolher a PrevaSend?</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">📧</div>
+                    <h3>Envio Ilimitado de E-mails</h3>
+                    <p>Sem limites de envio. Envie quantos e-mails precisar para fazer seu negócio crescer, pagando sempre o mesmo valor fixo.</p>
+                </div>
                 
-                <div class="comparison-grid">
-                    <div class="comparison-card">
-                        <h3>Concorrentes</h3>
-                        <div class="price">R$ 1.375+</div>
-                        <div class="price-desc">por mês (100k contatos)</div>
-                        <ul class="feature-list">
-                            <li>Servidores compartilhados</li>
-                            <li>IPs compartilhados</li>
-                            <li>Limite de disparos</li>
-                            <li>Suporte básico</li>
-                            <li>Sem aquecimento incluso</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="comparison-card highlight">
-                        <h3>Prevalab</h3>
-                        <div class="price">Consulte</div>
-                        <div class="price-desc">Preço personalizado</div>
-                        <ul class="feature-list">
-                            <li>Servidores dedicados</li>
-                            <li>IPs dedicados</li>
-                            <li>Disparos ilimitados</li>
-                            <li>Suporte especializado</li>
-                            <li>Aquecimento gratuito</li>
-                            <li>Assessoria estratégica</li>
-                            <li>CRM completo</li>
-                            <li>Multi-canal (Email, SMS, WhatsApp)</li>
-                        </ul>
-                    </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🖥️</div>
+                    <h3>Servidor + IP Dedicados</h3>
+                    <p>Seu próprio servidor com IP dedicado. Máxima deliverabilidade e reputação protegida, sem dividir com outros usuários.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🔥</div>
+                    <h3>Aquecimento de Domínio Gratuito</h3>
+                    <p>Cuidamos do aquecimento do seu domínio e IP gratuitamente. Seus e-mails chegam na caixa de entrada, não no spam.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">⚡</div>
+                    <h3>Automação Poderosa</h3>
+                    <p>Sequências de e-mail, segmentação avançada e triggers automáticos. Venda enquanto dorme com nossa automação.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h3>Assessoria de Marketing Inclusa</h3>
+                    <p>Nossa equipe te ajuda a criar campanhas que convertem. Estratégias, copy e otimizações incluídas no plano.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>Sem Taxas Escondidas</h3>
+                    <p>Preço fixo, transparente e justo. Não cobramos por contato, por envio ou funcionalidades extras. Tudo incluído.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Benefits Section -->
-        <section id="benefits" class="benefits section">
-            <div class="container">
-                <h2>Vantagens Exclusivas da Prevalab</h2>
-                
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🚀</div>
-                        <h3>Servidores Dedicados</h3>
-                        <p>Sua infraestrutura exclusiva garante máxima performance e entregabilidade. Sem compartilhamento, sem lentidão, sem limites.</p>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🎯</div>
-                        <h3>IPs Dedicados</h3>
-                        <p>Reputação limpa e protegida. Seus IPs exclusivos evitam blacklists e garantem que seus emails cheguem na caixa de entrada.</p>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-icon">♾️</div>
-                        <h3>Disparos Ilimitados</h3>
-                        <p>Envie para quantos contatos quiser, quando quiser. Sem taxas extras, sem limitações artificiais.</p>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-icon">🔥</div>
-                        <h3>Aquecimento Gratuito</h3>
-                        <p>Aquecimento profissional de IP e domínio incluso no plano. Comece com máxima entregabilidade desde o dia 1.</p>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-icon">💬</div>
-                        <h3>Multi-Canal Integrado</h3>
-                        <p>Email, SMS, WhatsApp, tudo em uma plataforma. Automações inteligentes que conectam todos os canais.</p>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="benefit-icon">👥</div>
-                        <h3>Suporte Especializado</h3>
-                        <p>Time de especialistas em marketing digital para orientar suas estratégias e maximizar resultados.</p>
-                    </div>
+    <!-- Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <h2>🚀 <span class="gradient-text">Números que impressionam</span></h2>
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-value">1M+</div>
+                    <p>E-mails entregues por mês</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">98.7%</div>
+                    <p>Taxa de deliverabilidade</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">500+</div>
+                    <p>Empresas atendidas</p>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">24h</div>
+                    <p>Tempo médio de setup</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Testimonials -->
-        <section class="testimonials section">
-            <div class="container">
-                <h2>O que Nossos Clientes Dizem</h2>
+    <!-- Testimonials -->
+    <section class="section">
+        <div class="container">
+            <h2>⭐ <span class="gradient-text">O que nossos clientes dizem</span></h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <p>Saí do MailChimp porque estava pagando uma fortuna. Com a PrevaSend tenho envio ilimitado e pago menos de 20% do que pagava antes. Meu ROI aumentou 400%!</p>
+                    <div class="testimonial-author">- Marina Silva, E-commerce de Moda</div>
+                </div>
                 
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"Reduzi meus custos em 80% e ainda tenho mais funcionalidades. A Prevalab mudou completamente minha estratégia de marketing."</div>
-                        <div class="testimonial-author">Marina Silva</div>
-                        <div class="testimonial-role">CEO, Agência Digital Plus</div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"O suporte é excepcional. Eles não apenas fornecem a ferramenta, mas me ajudam a criar estratégias que realmente funcionam."</div>
-                        <div class="testimonial-author">Carlos Mendes</div>
-                        <div class="testimonial-role">Founder, StartupTech</div>
-                    </div>
-                    
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"Finalmente encontrei uma solução que cabe no orçamento da minha PME sem sacrificar qualidade. Recomendo demais!"</div>
-                        <div class="testimonial-author">Ana Rodrigues</div>
-                        <div class="testimonial-role">Diretora Comercial, Bella Cosméticos</div>
-                    </div>
+                <div class="testimonial">
+                    <p>O aquecimento do domínio foi perfeito. Antes 60% dos meus e-mails iam para spam. Agora tenho 98% de deliverabilidade. A diferença é absurda!</p>
+                    <div class="testimonial-author">- Carlos Rodrigues, Consultor Digital</div>
+                </div>
+                
+                <div class="testimonial">
+                    <p>A assessoria de marketing incluída fez toda diferença. Eles me ajudaram a criar sequências que vendem sozinhas. Automatizei 70% das minhas vendas.</p>
+                    <div class="testimonial-author">- Ana Costa, Coach de Negócios</div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CTA Section -->
-        <section id="cta" class="cta-section section">
-            <div class="container">
-                <h2>Pronto para Revolucionar seu Marketing?</h2>
-                <p>Agende uma demonstração gratuita e descubra como economizar milhares de reais por mês</p>
-                <a href="#" class="btn-cta-large" onclick="openDemo()">Solicitar Demonstração Gratuita</a>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq section">
-            <div class="container">
-                <h2>Perguntas Frequentes</h2>
+    <!-- Offer Details -->
+    <section class="section">
+        <div class="container">
+            <h2>💼 <span class="gradient-text">O que você recebe com a PrevaSend</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🔧 Setup Completo do Servidor</h3>
+                    <p>Configuramos tudo para você: servidor dedicado, autenticações SPF, DKIM, DMARC e todas as configurações técnicas necessárias.</p>
+                </div>
                 
-                <div class="faq-container">
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            Como funciona o preço personalizado?
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nosso preço é baseado no volume de contatos e necessidades específicas do seu negócio. Sempre oferecemos um valor significativamente menor que as grandes plataformas, mantendo a qualidade superior.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            Vocês realmente oferecem disparos ilimitados?
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Sim! Com servidores dedicados, você não tem limites artificiais. Obviamente, seguimos as melhores práticas de entregabilidade para manter sua reputação.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            Como funciona o aquecimento gratuito?
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Nossa equipe especializada configura e executa o aquecimento profissional dos seus IPs e domínios, garantindo máxima entregabilidade desde o início.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            Posso migrar minha base de dados atual?
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            Absolutamente! Nossa equipe te ajuda na migração completa, incluindo contatos, automações e histórico de campanhas.
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <div class="faq-question" onclick="toggleFaq(this)">
-                            Qual o prazo para implementação?
-                            <span class="faq-icon">▼</span>
-                        </div>
-                        <div class="faq-answer">
-                            A implementação básica leva de 7 a 14 dias, incluindo configuração de servidores, aquecimento e treinamento da equipe.
-                        </div>
-                    </div>
+                <div class="benefit-card">
+                    <h3>🌐 Domínio e IP Aquecidos</h3>
+                    <p>Processo de aquecimento gradual do seu domínio e IP, garantindo máxima reputação e deliverabilidade desde o primeiro envio.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>🔗 Integração com Ferramentas</h3>
+                    <p>Conectamos com CRM, WordPress, Shopify, Facebook Ads e mais de 200 ferramentas via API e Zapier.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>📚 Treinamento e Suporte Contínuo</h3>
+                    <p>Treinamento completo da plataforma + suporte 24/7 via WhatsApp. Nossa equipe está sempre disponível para te ajudar.</p>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- Objections -->
+    <section class="section">
+        <div class="container">
+            <h2>❓ <span class="gradient-text">Suas dúvidas respondidas</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h3>🤔 "Vai parar na caixa de spam?"</h3>
+                    <p>NÃO! Fazemos o aquecimento correto do domínio e IP, configuramos todas as autenticações e seguimos as melhores práticas. Taxa de deliverabilidade de 98.7%.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>⚖️ "É legal enviar em massa?"</h3>
+                    <p>SIM! Desde que siga as leis (LGPD no Brasil e GDPR na Europa) e tenha permissão dos contatos. Te orientamos sobre todas as práticas legais.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>🆘 "Tem suporte se der problema?"</h3>
+                    <p>CLARO! Suporte 24/7 via WhatsApp, e-mail e telefone. Nossa equipe técnica resolve qualquer problema em minutos, não em dias.</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <h3>🤷 "Sou leigo, vou conseguir usar?"</h3>
+                    <p>SIM! Fazemos todo o setup para você. Interface super simples + treinamento completo + suporte constante. Você só precisa enviar os e-mails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee">
+        <div class="container">
+            <h3>🛡️ Garantia de Performance</h3>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Se não conseguir entregar seus primeiros envios com alta deliverabilidade, 
+                nossa equipe ajuda pessoalmente a ajustar tudo até funcionar perfeitamente.
+            </p>
+            <p style="font-weight: bold;">Seu sucesso é nossa prioridade!</p>
+        </div>
+    </section>
+
+    <!-- Urgency -->
+    <section class="urgency">
+        <div class="container">
+            <h3>🔥 Últimas Vagas Disponíveis!</h3>
+            <p>Apenas <strong>5 setups gratuitos</strong> por mês para garantir qualidade máxima</p>
+            <p>Plano ilimitado com preço promocional válido apenas em <strong>Julho/2025</strong></p>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="section" style="text-align: center; background: linear-gradient(135deg, #667eea, #764ba2); color: white;">
+        <div class="container">
+            <h2>🚀 <span class="gradient-text">Pare de pagar caro e comece a vender mais!</span></h2>
+            <p style="font-size: 1.3rem; margin: 2rem 0;">
+                Enquanto seus concorrentes gastam fortunas com plataformas limitadas, 
+                você terá liberdade total por um preço justo.
+            </p>
+            <a href="https://wa.me/5548998168148" class="cta-button" style="font-size: 1.3rem; padding: 20px 50px;">
+                💬 Quero Ter Liberdade de Envio Agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Errors to Avoid -->
+    <section class="errors-section">
+        <div class="container">
+            <h2>❌ Erros Comuns que Destroem Conversões</h2>
+            <p style="text-align: center; margin-bottom: 2rem; opacity: 0.8;">
+                Evite estes erros que podem estar matando suas vendas online:
+            </p>
+            <div class="errors-grid">
+                <div class="error-item">
+                    <h4>❌ Foco na Empresa</h4>
+                    <p>Falar mais da empresa que dos benefícios para o cliente</p>
+                </div>
+                <div class="error-item">
+                    <h4>❌ Linguagem Técnica</h4>
+                    <p>Usar jargões confusos ao invés de linguagem simples</p>
+                </div>
+                <div class="error-item">
+                    <h4>❌ CTA Fraco</h4>
+                    <p>Usar "Saiba mais" ao invés de CTAs diretos e urgentes</p>
+                </div>
+                <div class="error-item">
+                    <h4>❌ Sem Prova Social</h4>
+                    <p>Não mostrar depoimentos e resultados reais</p>
+                </div>
+                <div class="error-item">
+                    <h4>❌ Página Lenta</h4>
+                    <p>Site que demora para carregar perde 50% dos visitantes</p>
+                </div>
+                <div class="error-item">
+                    <h4>❌ Ignorar Objeções</h4>
+                    <p>Não responder as dúvidas mais comuns dos clientes</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final PS -->
+    <section class="section" style="background: #f8f9fa; text-align: center;">
+        <div class="container">
+            <h3 style="color: #0CC0DF; margin-bottom: 1rem;">📌 PS:</h3>
+            <p style="font-size: 1.2rem; font-style: italic; color: #666;">
+                Se você já tentou outras plataformas e se frustrou com limitações ou preços abusivos, 
+                a PrevaSend foi feita para você. <strong>Sem limites, sem surpresas. Só resultado.</strong>
+            </p>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Prevalab. Todos os direitos reservados. Automação de marketing sem limites.</p>
+            <p>&copy; 2025 PrevaSend - Eficiência que prevalece. Todos os direitos reservados.</p>
+            <p style="margin-top: 1rem; opacity: 0.7;">
+                Desenvolvido para empresários que querem crescer sem limitações.
+            </p>
         </div>
     </footer>
 
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5548998168148" class="whatsapp-btn" title="Fale conosco no WhatsApp">
+        💬
+    </a>
+
+    <!-- Google Analytics Event Tracking -->
     <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+        // Track CTA clicks
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Replace with your actual Google Analytics tracking code
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'click', {
+                        'event_category': 'CTA',
+                        'event_label': 'CTA Click'
                     });
                 }
             });
         });
 
-        // FAQ Toggle
-        function toggleFaq(element) {
-            const faqItem = element.parentElement;
-            const isActive = faqItem.classList.contains('active');
-            
-            // Close all FAQ items
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked item if it wasn't active
-            if (!isActive) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(20px)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.1)';
-                header.style.backdropFilter = 'blur(10px)';
+        // Track WhatsApp button clicks
+        document.querySelector('.whatsapp-btn').addEventListener('click', function() {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'click', {
+                    'event_category': 'WhatsApp',
+                    'event_label': 'Floating WhatsApp Button'
+                });
             }
         });
 
-        // Demo modal simulation
-        function openDemo() {
-            alert('Demonstração solicitada! Em breve nossa equipe entrará em contato para agendar sua apresentação personalizada.');
-        }
-
-        // Animate elements on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.addEventListener('DOMContentLoaded', function() {
-            const animatedElements = document.querySelectorAll('.comparison-card, .benefit-card, .testimonial-card');
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(30px)';
-                el.style.transition = 'all 0.6s ease-out';
-                observer.observe(el);
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
         });
     </script>
