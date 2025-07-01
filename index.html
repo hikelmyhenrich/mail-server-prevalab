@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PrevaSend - Liberdade Total em E-mail Marketing</title>
+    <link rel="icon" type="image/png" href="https://hikelmyhenrich.com/wp-content/uploads/2025/07/HH.png">
     <style>
         * {
             margin: 0;
@@ -53,19 +54,20 @@
         }
 
         .logo img {
-            height: 50px;
+            height: 40px;
             width: auto;
         }
 
         .header-cta {
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             color: white;
-            padding: 12px 24px;
+            padding: 10px 18px;
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: bold;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 14px;
         }
 
         .header-cta:hover {
@@ -76,19 +78,19 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, rgba(12, 192, 223, 0.1), rgba(255, 222, 89, 0.1));
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             font-weight: bold;
             margin-bottom: 20px;
             line-height: 1.2;
         }
 
         .hero h2 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #666;
             margin-bottom: 40px;
             max-width: 800px;
@@ -99,10 +101,10 @@
         .cta-button {
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             color: white;
-            padding: 18px 40px;
+            padding: 16px 32px;
             border: none;
             border-radius: 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -117,11 +119,11 @@
         }
 
         .hero-image {
-            margin-top: 60px;
+            margin-top: 40px;
             background: #fff;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
             max-width: 900px;
             margin-left: auto;
             margin-right: auto;
@@ -129,12 +131,12 @@
 
         .dashboard-preview {
             width: 100%;
-            height: 450px;
+            height: 350px;
             background: linear-gradient(135deg, #f8f9fa, #ffffff);
-            border-radius: 15px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 20px;
             border: 1px solid #e9ecef;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
         }
@@ -153,29 +155,30 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
             border-bottom: 1px solid #e9ecef;
         }
 
         .dashboard-header h3 {
             margin: 0;
             color: #333;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 600;
         }
 
         .online-status {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: #0CC0DF;
             font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background: #0CC0DF;
             border-radius: 50%;
             animation: pulse 2s infinite;
@@ -188,17 +191,17 @@
 
         .dashboard-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
         .stat-card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             border: 1px solid #f0f0f0;
             transition: all 0.3s ease;
             cursor: pointer;
@@ -212,35 +215,35 @@
         }
 
         .stat-number {
-            font-size: 2.2rem;
+            font-size: 1.6rem;
             font-weight: bold;
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
 
         .stat-label {
             color: #666;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             font-weight: 500;
         }
 
         .dashboard-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             justify-content: center;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .action-btn {
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             color: white;
             border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.7rem;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -253,10 +256,10 @@
 
         .activity-indicator {
             position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 6px;
-            height: 6px;
+            top: 12px;
+            right: 12px;
+            width: 5px;
+            height: 5px;
             background: #28a745;
             border-radius: 50%;
             animation: blink 1.5s infinite;
@@ -269,29 +272,29 @@
 
         /* Benefits Section */
         .benefits {
-            padding: 80px 0;
+            padding: 60px 0;
             background: #fff;
         }
 
         .benefits h2 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 60px;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
         }
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .benefit-card {
             background: #f8f9fa;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 12px;
             text-align: center;
             transition: transform 0.3s ease;
-            border-left: 5px solid #0CC0DF;
+            border-left: 4px solid #0CC0DF;
         }
 
         .benefit-card:hover {
@@ -299,39 +302,95 @@
         }
 
         .benefit-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
         }
 
         .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
             color: #333;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Server Benefits Section */
+        .server-benefits {
+            padding: 60px 0;
+            background: linear-gradient(135deg, rgba(12, 192, 223, 0.05), rgba(255, 222, 89, 0.05));
+        }
+
+        .server-benefits h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+        }
+
+        .server-benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .server-benefit-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #FFDE59;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .server-benefit-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .server-benefit-card h4 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .server-benefit-card p {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
 
         /* Social Proof */
         .social-proof {
             background: linear-gradient(135deg, rgba(12, 192, 223, 0.1), rgba(255, 222, 89, 0.1));
-            padding: 80px 0;
+            padding: 60px 0;
+        }
+
+        .social-proof h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
         }
 
         .testimonials {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .testimonial {
             background: #fff;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
         }
 
         .testimonial-text {
             font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 1rem;
+            margin-bottom: 15px;
             color: #555;
         }
 
@@ -342,47 +401,58 @@
 
         /* Offer Details */
         .offer-details {
-            padding: 80px 0;
+            padding: 60px 0;
             background: #fff;
+        }
+
+        .offer-details h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
         }
 
         .offer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
         }
 
         .offer-item {
             background: #f8f9fa;
-            padding: 30px;
+            padding: 25px;
             border-radius: 10px;
             text-align: center;
         }
 
         .offer-item h4 {
             color: #0CC0DF;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         /* Objections */
         .objections {
             background: linear-gradient(135deg, rgba(12, 192, 223, 0.05), rgba(255, 222, 89, 0.05));
-            padding: 80px 0;
+            padding: 60px 0;
+        }
+
+        .objections h2 {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 50px;
         }
 
         .objection-item {
             background: #fff;
-            padding: 30px;
-            margin-bottom: 20px;
+            padding: 25px;
+            margin-bottom: 15px;
             border-radius: 10px;
-            border-left: 5px solid #FFDE59;
+            border-left: 4px solid #FFDE59;
         }
 
         .objection-question {
             font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .objection-answer {
@@ -392,15 +462,15 @@
         /* Urgency */
         .urgency {
             background: #fff;
-            padding: 60px 0;
+            padding: 50px 0;
             text-align: center;
         }
 
         .urgency-box {
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             color: white;
-            padding: 40px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 12px;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -408,15 +478,20 @@
         /* Final CTA */
         .final-cta {
             background: linear-gradient(135deg, rgba(12, 192, 223, 0.1), rgba(255, 222, 89, 0.1));
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
         }
 
         /* Footer */
         .footer {
             background: #333;
             color: white;
-            padding: 40px 0;
+            padding: 30px 0;
             text-align: center;
         }
 
@@ -432,14 +507,15 @@
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .popup-content {
             background: white;
-            padding: 40px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 15px;
             max-width: 500px;
-            width: 90%;
+            width: 100%;
             position: relative;
             animation: popupSlide 0.3s ease;
         }
@@ -451,8 +527,8 @@
 
         .close-popup {
             position: absolute;
-            top: 15px;
-            right: 20px;
+            top: 10px;
+            right: 15px;
             background: none;
             border: none;
             font-size: 24px;
@@ -463,13 +539,13 @@
         .popup-form {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .popup-form input {
-            padding: 15px;
+            padding: 12px;
             border: 2px solid #e9ecef;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 16px;
             transition: border-color 0.3s ease;
         }
@@ -482,30 +558,130 @@
         .popup-form button {
             background: linear-gradient(135deg, #0CC0DF, #FFDE59);
             color: white;
-            padding: 15px;
+            padding: 12px;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
         }
 
-        /* Responsive */
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+                margin-bottom: 15px;
             }
             
             .hero h2 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 30px;
             }
-            
-            .benefits-grid {
+
+            .cta-button {
+                padding: 14px 24px;
+                font-size: 1rem;
+            }
+
+            .header-cta {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            .dashboard-preview {
+                height: 280px;
+                padding: 15px;
+            }
+
+            .dashboard-header h3 {
+                font-size: 1rem;
+            }
+
+            .stat-number {
+                font-size: 1.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .action-btn {
+                padding: 5px 10px;
+                font-size: 0.65rem;
+            }
+
+            .benefits, .server-benefits, .social-proof, .offer-details, .objections {
+                padding: 40px 0;
+            }
+
+            .benefits h2, .server-benefits h2, .social-proof h2, .offer-details h2, .objections h2 {
+                font-size: 1.8rem;
+                margin-bottom: 30px;
+            }
+
+            .benefits-grid, .server-benefits-grid, .testimonials, .offer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-card, .server-benefit-card, .testimonial, .offer-item, .objection-item {
+                padding: 20px;
+            }
+
+            .urgency-box {
+                padding: 25px;
+            }
+
+            .final-cta h2 {
+                font-size: 1.6rem;
+            }
+
+            .popup-content {
+                padding: 25px;
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero h2 {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .dashboard-stats {
                 grid-template-columns: 1fr;
             }
-            
-            .testimonials {
-                grid-template-columns: 1fr;
+
+            .dashboard-preview {
+                height: 320px;
+            }
+
+            .benefits h2, .server-benefits h2, .social-proof h2, .offer-details h2, .objections h2 {
+                font-size: 1.5rem;
+            }
+
+            .final-cta h2 {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -518,7 +694,7 @@
                 <div class="logo">
                     <img src="https://hikelmyhenrich.com/wp-content/uploads/2025/07/HH.png" alt="PrevaSend Logo">
                 </div>
-                <button class="header-cta" onclick="openPopup()">Demonstração Gratuita</button>
+                <button class="header-cta" onclick="openPopup()">Marcar Reunião</button>
             </div>
         </div>
     </header>
@@ -614,7 +790,61 @@
         </div>
     </section>
 
-    <!-- Social Proof -->
+    <!-- Server Benefits Section -->
+    <section class="server-benefits">
+        <div class="container">
+            <h2>Benefícios do <span class="gradient-text">Servidor Mautic 5</span></h2>
+            
+            <div class="server-benefits-grid">
+                <div class="server-benefit-card">
+                    <h4>📩 1. Envia mensagens personalizadas automaticamente</h4>
+                    <p>Você pode mandar e-mails, mensagens e conteúdos certos para cada pessoa, no momento ideal, sem precisar fazer tudo manualmente.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>👥 2. Organiza seus contatos facilmente</h4>
+                    <p>O Mautic ajuda você a manter tudo sobre seus clientes em um só lugar, com histórico do que cada um viu, clicou ou respondeu.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>📊 3. Acompanha o que funciona (e o que não)</h4>
+                    <p>Ele mostra quais campanhas dão resultado, para você entender melhor o que atrai seu público — e o que pode melhorar.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>⏱️ 4. Economiza seu tempo</h4>
+                    <p>Com o Mautic 5, você cria campanhas e ações que funcionam sozinhas, enquanto você foca em outras partes do seu negócio.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>🧲 5. Ajuda a atrair mais clientes</h4>
+                    <p>Você pode criar páginas, formulários e conteúdos que chamam a atenção de quem visita seu site e transformam curiosos em clientes.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>🎯 6. Fala com o público certo</h4>
+                    <p>Em vez de mandar a mesma mensagem para todo mundo, você fala com cada grupo de forma diferente, aumentando as chances de engajamento.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>🔁 7. Faz campanhas contínuas</h4>
+                    <p>Você pode montar sequências de mensagens que mantêm o relacionamento com seus contatos por semanas ou meses, sem esforço manual.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>🌐 8. Integra com outras ferramentas</h4>
+                    <p>O Mautic 5 funciona bem com outros sistemas que você já usa, facilitando o dia a dia e evitando retrabalho.</p>
+                </div>
+                
+                <div class="server-benefit-card">
+                    <h4>🔒 9. Dá mais controle sobre seus dados</h4>
+                    <p>Você tem controle total sobre os dados dos seus clientes, podendo ajustar tudo conforme as regras de privacidade (como a LGPD).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Social Proof -->
     <section class="social-proof">
         <div class="container">
             <h2 class="gradient-text">O Que Nossos Clientes Dizem</h2>
